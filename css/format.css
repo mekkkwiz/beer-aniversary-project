@@ -2,7 +2,9 @@
 
 @font-face {
 	font-family: "Prompt";
-	src: url("https://fonts.googleapis.com/css?family=Prompt:400,300,700") format("font/ttf"),
+	src: url("../font/Prompt-Regular.ttf") format("truetype");
+	font-weight: regular;
+    font-style: normal;
 }
 
 body {
