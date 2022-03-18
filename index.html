@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en">
+<html lang="th">
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 		<meta charset="UTF-8">
@@ -7,11 +7,17 @@
 		<link rel="stylesheet" type="text/css" href="./css/format.css">
 	</head>
 
+	<audio autoplay loop id="music">
+		<source src="music/music_2.mp3" type="audio/mpeg">
+		Your browser does not support the audio tag.
+	</audio>
+
+	<script>
+		var audio = document.getElementById("myaudio");
+		audio.volume = 0.2;
+	</script>
+
 	<body style="margin:0px">
-		<audio autoplay loop>
-			<source src="music/music_2.mp3" type="audio/mpeg">
-			Your browser does not support the audio.
-		</audio>
 		<canvas></canvas>
 		<div id="imgTxt">
 			<span id="Txt"></span> <br />
