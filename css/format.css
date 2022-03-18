@@ -1,4 +1,9 @@
-@import url("http://fonts.googleapis.com/css?family=Prompt:400,300,700");
+@import url();
+
+@font-face {
+	font-family: "Prompt";
+	src: url("https://fonts.googleapis.com/css?family=Prompt:400,300,700") format("font/ttf"),
+}
 
 body {
 	font-family: 'Prompt', sans-serif !important;
