@@ -1,4 +1,4 @@
-/* Global Styles */
+/* สไตล์รวม */
 :root {
     --bg-color: #FFF5E1;
     --accent: #FFC0CB;
@@ -7,14 +7,14 @@
 
 body {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Mali', cursive, sans-serif;
     background: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
 }
 
 h1, h2, h3 {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Itim', cursive;
     color: var(--accent);
     margin-top: 0;
 }
@@ -24,7 +24,7 @@ section {
     text-align: center;
 }
 
-/* Header */
+/* ส่วนหัว */
 #hero {
     padding: 4rem 1rem 2rem;
 }
@@ -40,7 +40,7 @@ section {
     50% { transform: scale(1.2); }
 }
 
-/* Countdown Timer */
+/* ตัวนับถอยหลัง */
 .timer {
     display: flex;
     justify-content: center;
@@ -60,7 +60,7 @@ section {
     font-weight: 700;
 }
 
-/* Timeline */
+/* เส้นเวลา */
 .timeline {
     max-width: 600px;
     margin: 0 auto;
@@ -85,7 +85,7 @@ section {
     border-radius: 50%;
 }
 
-/* Gallery */
+/* แกลเลอรี */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -105,7 +105,7 @@ section {
     transform: scale(1.05);
 }
 
-/* Modal */
+/* โมดัล */
 .modal {
     display: none;
     position: fixed;
@@ -138,13 +138,13 @@ section {
     cursor: pointer;
 }
 
-/* Personal Message */
+/* ข้อความถึงเธอ */
 #message p {
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* Fade-in effect */
+/* เอฟเฟกต์เฟดอิน */
 .hidden {
     opacity: 0;
     transform: translateY(20px);
@@ -156,7 +156,7 @@ section {
     transform: translateY(0);
 }
 
-/* Responsive */
+/* สำหรับหน้าจอเล็ก */
 @media (max-width: 600px) {
     #hero {
         padding: 3rem 1rem 1rem;
