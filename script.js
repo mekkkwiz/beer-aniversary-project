@@ -1,40 +1,40 @@
-// Countdown Timer
+// ตัวนับถอยหลัง
 const daysEl = document.getElementById('days');
 const hoursEl = document.getElementById('hours');
 const minutesEl = document.getElementById('minutes');
 const secondsEl = document.getElementById('seconds');
 
-// Replace with your anniversary date (YYYY-MM-DD)
-const anniversary = new Date('YYYY-MM-DD').getTime();
+// วันครบรอบเริ่มต้น
+const startDate = new Date('2021-03-19T00:00:00');
+
+function getNextAnniversary() {
+    const now = new Date();
+    let next = new Date(now.getFullYear(), startDate.getMonth(), startDate.getDate());
+    if (next < now) {
+        next.setFullYear(next.getFullYear() + 1);
+    }
+    return next.getTime();
+}
 
 function updateCountdown() {
     const now = new Date().getTime();
-    const distance = anniversary - now;
-
-    if (distance < 0) {
-        daysEl.textContent = 0;
-        hoursEl.textContent = 0;
-        minutesEl.textContent = 0;
-        secondsEl.textContent = 0;
-        clearInterval(countdownInterval);
-        return;
-    }
+    const distance = getNextAnniversary() - now;
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    daysEl.textContent = days;
-    hoursEl.textContent = hours;
-    minutesEl.textContent = minutes;
-    secondsEl.textContent = seconds;
+    daysEl.textContent = days < 0 ? 0 : days;
+    hoursEl.textContent = hours < 0 ? 0 : hours;
+    minutesEl.textContent = minutes < 0 ? 0 : minutes;
+    secondsEl.textContent = seconds < 0 ? 0 : seconds;
 }
 
 const countdownInterval = setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// Fade-in on scroll
+// เฝ้าดูการเลื่อนเพื่อเฟดอิน
 const hiddenElements = document.querySelectorAll('.hidden');
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -47,12 +47,12 @@ const observer = new IntersectionObserver((entries) => {
 
 hiddenElements.forEach(el => observer.observe(el));
 
-// Gallery Modal
+// โมดัลของแกลเลอรี
 const modal = document.getElementById('modal');
 const modalImg = document.getElementById('modal-img');
 const closeBtn = document.querySelector('.close');
 
-// Open modal when an image is clicked
+// เปิดโมดัลเมื่อคลิกรูป
 const images = document.querySelectorAll('.gallery-grid img');
 images.forEach(img => {
     img.addEventListener('click', () => {
@@ -62,7 +62,7 @@ images.forEach(img => {
     });
 });
 
-// Close modal when close button or background is clicked
+// ปิดโมดัลเมื่อคลิกปุ่มปิดหรือพื้นหลัง
 closeBtn.addEventListener('click', () => modal.classList.remove('show'));
 modal.addEventListener('click', (e) => {
     if (e.target === modal) {
