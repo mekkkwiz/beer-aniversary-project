@@ -1,83 +1,82 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-		<meta charset="UTF-8">
-		<title>First anniversary of love</title>
-		<link rel="stylesheet" type="text/css" href="./css/format.css">
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header id="hero" class="hidden">
+        <h1>Happy Anniversary, My Love!</h1>
+        <h2>[Your Name] &amp; [Partner's Name]</h2>
+        <div class="heart">&#10084;</div>
+    </header>
 
-	<audio loop autoplay>
-		<source src="music/music_1.mp3" type="audio/mpeg">
-		Your browser does not support the audio tag.
-	</audio>
+    <!-- Countdown Timer Section -->
+    <section id="countdown" class="hidden">
+        <h2>Counting Down to Our Special Day</h2>
+        <div class="timer">
+            <div><span id="days">0</span><small>Days</small></div>
+            <div><span id="hours">0</span><small>Hours</small></div>
+            <div><span id="minutes">0</span><small>Minutes</small></div>
+            <div><span id="seconds">0</span><small>Seconds</small></div>
+        </div>
+    </section>
 
-	<body style="margin:0px">
-		<canvas></canvas>
-		<div id="imgTxt">
-			<span id="Txt"></span> <br />
-			<span id="tmp"></span>
-			<img id="img" src="">
-		</div>
-		<div id="heartTxt">
-			<span id="clickMe">กดทีเดียวพอนะ</span>
-			<div id="heart">
-				<button id="button" onclick="play()"></button>
-			</div>
-		</div>
-		<div id="content">
-			<h2 id="together">เราอยู่ด้วยกันมา</h2>
-			<div id="timer">
-				<b id="d"></b> Days 
-				<b id="h"></b> Hours
-				<b id="m"></b> Minutes
-				<b id="s"></b> Seconds
-			</div>
-		</div>
+    <!-- Our Story Section -->
+    <section id="story" class="hidden">
+        <h2>Our Journey Together</h2>
+        <div class="timeline">
+            <div class="event">
+                <h3>Date 1 - The Day We Met</h3>
+                <p>A short, sweet sentence about when we first met.</p>
+            </div>
+            <div class="event">
+                <h3>Date 2 - Our First Date</h3>
+                <p>A short, sweet sentence about our first date.</p>
+            </div>
+            <div class="event">
+                <h3>Date 3 - The 'Yes' Day</h3>
+                <p>A short, sweet sentence about our engagement or when we became official.</p>
+            </div>
+            <div class="event">
+                <h3>Date 4 - Another Special Moment</h3>
+                <p>Another unforgettable memory together.</p>
+            </div>
+        </div>
+    </section>
 
-    	<div id = "typeDiv">
-        	<span id="txt1"></span> <br />
-        	<span id="txt2"></span>
-    	</div>		
+    <!-- Photo Gallery Section -->
+    <section id="gallery" class="hidden">
+        <h2>A Glimpse of Our Moments</h2>
+        <div class="gallery-grid">
+            <img src="images/photo1.jpg" alt="Photo 1">
+            <img src="images/photo2.jpg" alt="Photo 2">
+            <img src="images/photo3.jpg" alt="Photo 3">
+            <img src="images/photo4.jpg" alt="Photo 4">
+            <img src="images/photo5.jpg" alt="Photo 5">
+            <img src="images/photo6.jpg" alt="Photo 6">
+        </div>
+    </section>
 
-		<script >
-			var ok = 0;
-			var flag = 1;
-			var myImage = document.getElementById("img");
-			var myTxt = document.getElementById("Txt");
-			var imageArray = ["pic2/pic1.jpg", "pic2/pic2.jpg", "pic2/pic3.jpg", "pic2/pic4.jpg", "pic2/pic5.jpg", "pic2/pic6.jpg", 
-			"pic2/pic7.jpg", "pic2/pic8.jpg", "pic2/pic9.jpg", "pic2/pic10.jpg", "pic2/pic11.jpg", "pic2/pic12.jpg", "pic2/pic14.jpg", 
-			"pic2/pic15.JPG", "pic2/pic16.JPG", "pic2/pic17.JPG", "pic2/pic18.jpg", "pic2/pic19.jpg", "pic2/pic20.jpg", "pic2/pic13.jpg"];
-			var imageIndex = 0;
-			var txtArray = [
-			"ไปดูดาวที่ NARIT ด้วยกัน~", 
-			"ดูผมเธอดิเป็นจะงอยอีกแล้ว~ หน้าเราอย่างหลอนอ่ะ 5555555",
-			"ขอจุ๊บมือโหน่ยย~(｡･ω･｡)ﾉ♡",
-			"เล่นโทรศัพท์ไม่สนใจเราเลยย ;-;", 
-			"ว่าแล้วยังยิ้ม (ง︡'-'︠)ง", 
-			"ไอ้แก้มอ้วน~o(≧v≦)o", 
-			"แอบถ่ายเรานอนหรอ ᕴｰᴥｰᕵ",
-			"โดนถ่ายคืนไปเส้!!!", 
-			"รูปเกือบคู่ เธอเหลือครึ่งตัว ༼つ ◕_◕ ༽つ",
-			"ทำไมเราทำหน้าแบบนั้นอ่ะ",
-			"งื้ออ น่ารักสุดๆ แงงงง ละลายหมดแย้วว ʕ·ᴥ·ʔ",
-			"รูปคู่จริงๆแล้วว งื้อน่ารักไหมม <3", 
-			"พาเธอไปกินข้าว วันเกิด",
-			"รักนะงับบ ( 。・o・)💗",
-			"ไปพายเรือกัน น่ารักทีสุดเลยย💕",
-			"แล้วดูหน้าเรา 5555555 (｡•́︿•̀｡)",
-			"ไปกินข้าวด้วยกัน รูปนี้สวยดีไม่มีอะไร ",
-			"พาเธอไปทำใบขับขี่ กลับมากินขนม 🍰",
-			"เล่นเกมกับเธอ สนุกมากอยากเล่นอีกก 💖",
-			"ขอให้เป็นปีที่ดีนะงับบ รักเธอนะงับบบ 🥰💕"
-			];
-			var len = imageArray.length;
-			var t = 0;
-		</script>
-		
-		<script type="text/javascript" src="./js/stars.js"></script>
-		<script type="text/javascript" src="./js/typeWriter.js"></script>
-		<script type="text/javascript" src="./js/date.js"></script>
-		<script type="text/javascript" src="./js/playImg.js"></script>
-	</body>
+    <!-- Modal for Gallery -->
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img" alt="Expanded Photo">
+    </div>
+
+    <!-- Personal Message Section -->
+    <section id="message" class="hidden">
+        <h2>Why I Love You</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo nisl nec neque facilisis, ac volutpat magna feugiat. Curabitur euismod, nisl sit amet varius laoreet, arcu ex bibendum turpis, id ultrices odio sapien in turpis.</p>
+    </section>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+</body>
 </html>
