@@ -1,0 +1,168 @@
+/* สไตล์รวม */
+:root {
+    --bg-color: #FFF5E1;
+    --accent: #FFC0CB;
+    --text-color: #5D4037;
+}
+
+body {
+    margin: 0;
+    font-family: 'Mali', cursive, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Itim', cursive;
+    color: var(--accent);
+    margin-top: 0;
+}
+
+section {
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+/* ส่วนหัว */
+#hero {
+    padding: 4rem 1rem 2rem;
+}
+
+#hero .heart {
+    font-size: 4rem;
+    margin-top: 1rem;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* ตัวนับถอยหลัง */
+.timer {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 1.2rem;
+}
+
+.timer div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timer span {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* เส้นเวลา */
+.timeline {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.event {
+    position: relative;
+    padding-left: 2rem;
+    margin: 2rem 0;
+    border-left: 3px solid var(--accent);
+}
+
+.event::before {
+    content: '';
+    position: absolute;
+    left: -11px;
+    top: 0.5rem;
+    width: 20px;
+    height: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+}
+
+/* แกลเลอรี */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* โมดัล */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 8px;
+}
+
+.modal .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* ข้อความถึงเธอ */
+#message p {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* เอฟเฟกต์เฟดอิน */
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* สำหรับหน้าจอเล็ก */
+@media (max-width: 600px) {
+    #hero {
+        padding: 3rem 1rem 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+}
